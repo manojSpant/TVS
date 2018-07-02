@@ -1,0 +1,4 @@
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.CommonUtility\bin\Debug\TimeValue.CommonUtility.dll
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.CommonUtility\bin\Debug\TimeValue.CommonUtility.pdb
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.CommonUtility\obj\Debug\TimeValue.CommonUtility.dll
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.CommonUtility\obj\Debug\TimeValue.CommonUtility.pdb
