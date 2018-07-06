@@ -1,0 +1,17 @@
+E:\MindfireInternalProjects\TimeValueSystem\Project\TimeValueProjects\TimeValue.BusinessServices\bin\Debug\TimeValue.BusinessServices.dll
+E:\MindfireInternalProjects\TimeValueSystem\Project\TimeValueProjects\TimeValue.BusinessServices\bin\Debug\TimeValue.BusinessServices.pdb
+E:\MindfireInternalProjects\TimeValueSystem\Project\TimeValueProjects\TimeValue.BusinessServices\obj\Debug\TimeValue.BusinessServices.dll
+E:\MindfireInternalProjects\TimeValueSystem\Project\TimeValueProjects\TimeValue.BusinessServices\obj\Debug\TimeValue.BusinessServices.pdb
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.BusinessServices\obj\Debug\TimeValue.BusinessServices.csprojResolveAssemblyReference.cache
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.BusinessServices\bin\Debug\TimeValue.BusinessServices.dll
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.BusinessServices\bin\Debug\TimeValue.BusinessServices.pdb
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.BusinessServices\bin\Debug\AutoMapper.dll
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.BusinessServices\bin\Debug\TimeValue.BusinessEntities.dll
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.BusinessServices\bin\Debug\TimeValue.DataModel.dll
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.BusinessServices\bin\Debug\EntityFramework.dll
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.BusinessServices\bin\Debug\AutoMapper.xml
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.BusinessServices\bin\Debug\TimeValue.BusinessEntities.pdb
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.BusinessServices\bin\Debug\TimeValue.DataModel.pdb
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.BusinessServices\bin\Debug\EntityFramework.xml
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.BusinessServices\obj\Debug\TimeValue.BusinessServices.dll
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.BusinessServices\obj\Debug\TimeValue.BusinessServices.pdb

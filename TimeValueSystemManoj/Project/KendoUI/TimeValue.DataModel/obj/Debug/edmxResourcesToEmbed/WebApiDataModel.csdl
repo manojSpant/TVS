@@ -1,0 +1,687 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DevTimeValueModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DevTimeValueEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bills" EntityType="DevTimeValueModel.Bill" />
+    <EntitySet Name="BillLines" EntityType="DevTimeValueModel.BillLine" />
+    <EntitySet Name="BillLineDetails" EntityType="DevTimeValueModel.BillLineDetail" />
+    <EntitySet Name="Clients" EntityType="DevTimeValueModel.Client" />
+    <EntitySet Name="ClientAddressMaps" EntityType="DevTimeValueModel.ClientAddressMap" />
+    <EntitySet Name="ClientCommentMaps" EntityType="DevTimeValueModel.ClientCommentMap" />
+    <EntitySet Name="ClientContactMaps" EntityType="DevTimeValueModel.ClientContactMap" />
+    <EntitySet Name="ClientDataMaps" EntityType="DevTimeValueModel.ClientDataMap" />
+    <EntitySet Name="ClientDocumentMaps" EntityType="DevTimeValueModel.ClientDocumentMap" />
+    <EntitySet Name="ClientRateMaps" EntityType="DevTimeValueModel.ClientRateMap" />
+    <EntitySet Name="ClientTeamMaps" EntityType="DevTimeValueModel.ClientTeamMap" />
+    <EntitySet Name="Companies" EntityType="DevTimeValueModel.Company" />
+    <EntitySet Name="Employees" EntityType="DevTimeValueModel.Employee" />
+    <EntitySet Name="Estimates" EntityType="DevTimeValueModel.Estimate" />
+    <EntitySet Name="EstimateLines" EntityType="DevTimeValueModel.EstimateLine" />
+    <EntitySet Name="EstimateLineDetails" EntityType="DevTimeValueModel.EstimateLineDetail" />
+    <EntitySet Name="Groups" EntityType="DevTimeValueModel.Group" />
+    <EntitySet Name="Organizations" EntityType="DevTimeValueModel.Organization" />
+    <EntitySet Name="PayrollTimeTrackings" EntityType="DevTimeValueModel.PayrollTimeTracking" />
+    <EntitySet Name="Projects" EntityType="DevTimeValueModel.Project" />
+    <EntitySet Name="ProjectAddressMaps" EntityType="DevTimeValueModel.ProjectAddressMap" />
+    <EntitySet Name="ProjectCommentMaps" EntityType="DevTimeValueModel.ProjectCommentMap" />
+    <EntitySet Name="ProjectContactMaps" EntityType="DevTimeValueModel.ProjectContactMap" />
+    <EntitySet Name="ProjectDataMaps" EntityType="DevTimeValueModel.ProjectDataMap" />
+    <EntitySet Name="ProjectDocumentMaps" EntityType="DevTimeValueModel.ProjectDocumentMap" />
+    <EntitySet Name="ProjectRateMaps" EntityType="DevTimeValueModel.ProjectRateMap" />
+    <EntitySet Name="ProjectTeamMaps" EntityType="DevTimeValueModel.ProjectTeamMap" />
+    <EntitySet Name="Rates" EntityType="DevTimeValueModel.Rate" />
+    <EntitySet Name="TicketDisbursmentBillLineDetailMaps" EntityType="DevTimeValueModel.TicketDisbursmentBillLineDetailMap" />
+    <EntitySet Name="TicketDisbursmentEstimateLineDetailMaps" EntityType="DevTimeValueModel.TicketDisbursmentEstimateLineDetailMap" />
+    <EntitySet Name="TicketExpenseBillLineDetailMaps" EntityType="DevTimeValueModel.TicketExpenseBillLineDetailMap" />
+    <EntitySet Name="TicketMaterialEstimateLineDetailMaps" EntityType="DevTimeValueModel.TicketMaterialEstimateLineDetailMap" />
+    <EntitySet Name="TicketServiceBillLineDetailMaps" EntityType="DevTimeValueModel.TicketServiceBillLineDetailMap" />
+    <EntitySet Name="TicketServiceEstimateLineDetailMaps" EntityType="DevTimeValueModel.TicketServiceEstimateLineDetailMap" />
+    <EntitySet Name="TicketTimeEstimateLineDetailMaps" EntityType="DevTimeValueModel.TicketTimeEstimateLineDetailMap" />
+    <EntitySet Name="TicketMaterialBillLineDetailMaps" EntityType="DevTimeValueModel.TicketMaterialBillLineDetailMap" />
+    <EntitySet Name="TicketTimeBillLineDetailMaps" EntityType="DevTimeValueModel.TicketTimeBillLineDetailMap" />
+    <AssociationSet Name="FK_TvMProject_TvMClient" Association="DevTimeValueModel.FK_TvMProject_TvMClient">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
+    <EntitySet Name="Users" EntityType="DevTimeValueModel.User" />
+    <EntitySet Name="Tokens" EntityType="DevTimeValueModel.Token" />
+  </EntityContainer>
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="PkBillId" />
+    </Key>
+    <Property Name="PkBillId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BillNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FkBillTypeId" Type="Byte" />
+    <Property Name="FkEmployeeId" Type="Int64" />
+    <Property Name="FkVendorId" Type="Int64" />
+    <Property Name="FkApprovedById" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+  </EntityType>
+  <EntityType Name="BillLine">
+    <Key>
+      <PropertyRef Name="PkBillLineId" />
+    </Key>
+    <Property Name="PkBillLineId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkBillId" Type="Int64" />
+    <Property Name="TableName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Item" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+  </EntityType>
+  <EntityType Name="BillLineDetail">
+    <Key>
+      <PropertyRef Name="PkBillLineDetailId" />
+    </Key>
+    <Property Name="PkBillLineDetailId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkBillLineId" Type="Int64" />
+    <Property Name="TableName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Item" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="PkClientId" />
+    </Key>
+    <Property Name="PkClientId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ClientSince" Type="DateTime" Precision="7" />
+    <Property Name="DefaultTicketTypeId" Type="Int32" />
+    <Property Name="FkGroupId" Type="Int64" />
+    <Property Name="FkCountryId" Type="Int64" />
+    <Property Name="FkCurrencyId" Type="Int64" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="OnHold" Type="Boolean" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+    <NavigationProperty Name="Projects" Relationship="DevTimeValueModel.FK_TvMProject_TvMClient" FromRole="Client" ToRole="Project" />
+  </EntityType>
+  <EntityType Name="ClientAddressMap">
+    <Key>
+      <PropertyRef Name="PkClientAddressId" />
+    </Key>
+    <Property Name="PkClientAddressId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkClientId" Type="Int64" />
+    <Property Name="FkAddressId" Type="Int64" />
+    <Property Name="RecordStatusId" Type="Byte" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ClientCommentMap">
+    <Key>
+      <PropertyRef Name="PkClientCommentId" />
+    </Key>
+    <Property Name="PkClientCommentId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkClientId" Type="Int64" />
+    <Property Name="FkCommentId" Type="Int64" />
+    <Property Name="SequenceNo" Type="Int32" />
+    <Property Name="RecordStatusId" Type="Byte" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ClientContactMap">
+    <Key>
+      <PropertyRef Name="PkClientContactId" />
+    </Key>
+    <Property Name="PkClientContactId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkClientId" Type="Int64" />
+    <Property Name="FkContactId" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RecordStatusId" Type="Byte" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ClientDataMap">
+    <Key>
+      <PropertyRef Name="PkClientDataId" />
+    </Key>
+    <Property Name="PkClientDataId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkClientId" Type="Int64" />
+    <Property Name="FkDataId" Type="Int64" />
+    <Property Name="RecordStatusId" Type="Byte" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ClientDocumentMap">
+    <Key>
+      <PropertyRef Name="PkClientDocumentId" />
+    </Key>
+    <Property Name="PkClientDocumentId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkClientId" Type="Int64" />
+    <Property Name="FkDocumentId" Type="Int64" />
+    <Property Name="RecordStatusId" Type="Byte" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ClientRateMap">
+    <Key>
+      <PropertyRef Name="PkClientRateId" />
+    </Key>
+    <Property Name="PkClientRateId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkClientId" Type="Int64" />
+    <Property Name="FkRateId" Type="Int64" />
+    <Property Name="RecordStatusId" Type="Byte" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ClientTeamMap">
+    <Key>
+      <PropertyRef Name="PkClientTeamId" />
+    </Key>
+    <Property Name="PkClientTeamId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkClientId" Type="Int64" />
+    <Property Name="FkEmployeeId" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FkMemberRoleId" Type="Int32" />
+    <Property Name="RecordStatusId" Type="Byte" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="PkCompanyId" />
+    </Key>
+    <Property Name="PkCompanyId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="PKMEmployeeID" />
+    </Key>
+    <Property Name="PKMEmployeeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Estimate">
+    <Key>
+      <PropertyRef Name="PkEstimateId" />
+    </Key>
+    <Property Name="PkEstimateId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EstimateNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FkEstimateForId" Type="Byte" />
+    <Property Name="FkClientId" Type="Int64" />
+    <Property Name="FkProjectId" Type="Int64" />
+    <Property Name="FkPhaseId" Type="Int64" />
+    <Property Name="FkApprovedById" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+  </EntityType>
+  <EntityType Name="EstimateLine">
+    <Key>
+      <PropertyRef Name="PkEstimateLineId" />
+    </Key>
+    <Property Name="PkEstimateLineId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkEstimateId" Type="Int64" />
+    <Property Name="TableName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Item" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+  </EntityType>
+  <EntityType Name="EstimateLineDetail">
+    <Key>
+      <PropertyRef Name="PkEstimateLineDetailId" />
+    </Key>
+    <Property Name="PkEstimateLineDetailId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkEstimateLineId" Type="Int64" />
+    <Property Name="TableName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Item" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="PkGroupId" />
+    </Key>
+    <Property Name="PkGroupId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="Organization">
+    <Key>
+      <PropertyRef Name="PkOrganizationId" />
+    </Key>
+    <Property Name="PkOrganizationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="PayrollTimeTracking">
+    <Key>
+      <PropertyRef Name="PkPayrollTimeTrackingId" />
+    </Key>
+    <Property Name="PkPayrollTimeTrackingId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkTicketTimeId" Type="Int64" />
+    <Property Name="Item" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="PkProjectId" />
+    </Key>
+    <Property Name="PkProjectId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="OnHold" Type="Boolean" />
+    <Property Name="Www" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FkClientId" Type="Int64" />
+    <Property Name="FkDisciplineId" Type="Int64" />
+    <Property Name="FkCountryId" Type="Int64" />
+    <Property Name="FkCurrencyId" Type="Int64" />
+    <Property Name="Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="BudgetAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="BudgetHours" Type="Int32" />
+    <Property Name="ActualAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ActualHours" Type="Int32" />
+    <Property Name="BillableHours" Type="Int32" />
+    <Property Name="BillableAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CostToDate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="AlertOnBudgetAmount" Type="Int32" />
+    <Property Name="AlertOnBudgetHours" Type="Int32" />
+    <Property Name="PercentComplete" Type="Int32" />
+    <Property Name="BeginDate" Type="DateTime" Precision="7" />
+    <Property Name="RequiredByDate" Type="DateTime" Precision="7" />
+    <Property Name="SignOffBy" Type="DateTime" Precision="7" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+    <NavigationProperty Name="Client" Relationship="DevTimeValueModel.FK_TvMProject_TvMClient" FromRole="Project" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="ProjectAddressMap">
+    <Key>
+      <PropertyRef Name="PkProjectAddressId" />
+    </Key>
+    <Property Name="PkProjectAddressId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkProjectId" Type="Int64" />
+    <Property Name="FkAddressId" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ProjectCommentMap">
+    <Key>
+      <PropertyRef Name="PkProjectCommentId" />
+    </Key>
+    <Property Name="PkProjectCommentId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkProjectId" Type="Int64" />
+    <Property Name="FkCommentId" Type="Int64" />
+    <Property Name="SequenceNo" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ProjectContactMap">
+    <Key>
+      <PropertyRef Name="PkProjectContactId" />
+    </Key>
+    <Property Name="PkProjectContactId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkProjectId" Type="Int64" />
+    <Property Name="FkContactId" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ProjectDataMap">
+    <Key>
+      <PropertyRef Name="PkProjectDataId" />
+    </Key>
+    <Property Name="PkProjectDataId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkProjectId" Type="Int64" />
+    <Property Name="FkDataId" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ProjectDocumentMap">
+    <Key>
+      <PropertyRef Name="PkProjectDocumentId" />
+    </Key>
+    <Property Name="PkProjectDocumentId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkProjectId" Type="Int64" />
+    <Property Name="FkDocumentId" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ProjectRateMap">
+    <Key>
+      <PropertyRef Name="PkProjectRateId" />
+    </Key>
+    <Property Name="PkProjectRateId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkProjectId" Type="Int64" />
+    <Property Name="FkRateId" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ProjectTeamMap">
+    <Key>
+      <PropertyRef Name="PkProjectTeamId" />
+    </Key>
+    <Property Name="PkProjectTeamId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkProjectId" Type="Int64" />
+    <Property Name="FkEmployeeId" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FkMemberRoleId" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="Rate">
+    <Key>
+      <PropertyRef Name="PkRateId" />
+    </Key>
+    <Property Name="PkRateId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BaseRate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="OTBillableRate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PremiumBillableRate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="WageCost" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Tax1" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Tax2" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Tax3" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Tax4" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="IsDefaultRate" Type="Boolean" />
+    <Property Name="FkFeeTypeId" Type="Int64" />
+    <Property Name="FkFeeScheduleId" Type="Int64" />
+    <Property Name="FkGlIncomeAccountId" Type="Int64" />
+    <Property Name="FkGlExpenseAccountID" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="TicketDisbursmentBillLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketDisbursmentBillLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketDisbursmentBillLineDetailMapId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkBillLineDetailId" Type="Int64" />
+    <Property Name="FkTicketDisbursementId" Type="Int64" />
+    <Property Name="Item" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+  </EntityType>
+  <EntityType Name="TicketDisbursmentEstimateLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketDisbursementEstimateLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketDisbursementEstimateLineDetailMapId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkEstimateLineDetailId" Type="Int64" />
+    <Property Name="FkTicketDisbursementId" Type="Int64" />
+    <Property Name="Item" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+  </EntityType>
+  <EntityType Name="TicketExpenseBillLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketExpenseBillLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketExpenseBillLineDetailMapId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkBillLineDetailId" Type="Int64" />
+    <Property Name="FkTickeExpenseId" Type="Int64" />
+    <Property Name="Item" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+  </EntityType>
+  <EntityType Name="TicketMaterialEstimateLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketMaterialEstimateLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketMaterialEstimateLineDetailMapId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkEstimateLineDetailId" Type="Int64" />
+    <Property Name="FkTicketMaterialId" Type="Int64" />
+    <Property Name="Item" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+  </EntityType>
+  <EntityType Name="TicketServiceBillLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketTimeBillLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketTimeBillLineDetailMapId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkBillLineDetailId" Type="Int64" />
+    <Property Name="FkTicketServiceId" Type="Int64" />
+    <Property Name="Item" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+  </EntityType>
+  <EntityType Name="TicketServiceEstimateLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketMaterialEstimateLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketMaterialEstimateLineDetailMapId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkEstimateLineDetailId" Type="Int64" />
+    <Property Name="FkTicketMaterialId" Type="Int64" />
+    <Property Name="Item" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+  </EntityType>
+  <EntityType Name="TicketTimeEstimateLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketTimeEstimateLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketTimeEstimateLineDetailMapId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkEstimateLineDetailId" Type="Int64" />
+    <Property Name="FkTicketTimeId" Type="Int64" />
+    <Property Name="Item" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+  </EntityType>
+  <EntityType Name="TicketMaterialBillLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketMaterialBillLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketMaterialBillLineDetailMapId" Type="Int64" Nullable="false" />
+    <Property Name="FkBillLineDetailId" Type="Int64" />
+    <Property Name="FkTicketMaterialId" Type="Int64" />
+    <Property Name="Item" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+  </EntityType>
+  <EntityType Name="TicketTimeBillLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketTimeBillLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketTimeBillLineDetailMapId" Type="Int64" Nullable="false" />
+    <Property Name="FkBillLineDetailId" Type="Int64" />
+    <Property Name="FkTicketTimeId" Type="Int64" />
+    <Property Name="Item" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+    <Property Name="FkCreatedById" Type="Int64" />
+    <Property Name="FkCompanyId" Type="Int64" />
+    <Property Name="FkOrganizationId" Type="Int64" />
+    <Property Name="FkLanguageId" Type="Int64" />
+    <Property Name="FkRecordStatusId" Type="Byte" />
+  </EntityType>
+  <Association Name="FK_TvMProject_TvMClient">
+    <End Type="DevTimeValueModel.Client" Role="Client" Multiplicity="0..1" />
+    <End Type="DevTimeValueModel.Project" Role="Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="PkClientId" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="FkClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="PkUserId" />
+    </Key>
+    <Property Name="PkUserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="PkTokenId" />
+    </Key>
+    <Property Name="PkTokenId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FkUserId" Type="Int64" />
+    <Property Name="AuthToken" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IssuedOn" Type="DateTime" Precision="3" />
+    <Property Name="ExpiresOn" Type="DateTime" Precision="3" />
+  </EntityType>
+</Schema>

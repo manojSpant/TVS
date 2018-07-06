@@ -1,0 +1,8 @@
+E:\MindfireInternalProjects\TimeValueSystem\Project\TimeValueProjects\TimeValue.BusinessEntities\bin\Debug\TimeValue.BusinessEntities.dll
+E:\MindfireInternalProjects\TimeValueSystem\Project\TimeValueProjects\TimeValue.BusinessEntities\bin\Debug\TimeValue.BusinessEntities.pdb
+E:\MindfireInternalProjects\TimeValueSystem\Project\TimeValueProjects\TimeValue.BusinessEntities\obj\Debug\TimeValue.BusinessEntities.dll
+E:\MindfireInternalProjects\TimeValueSystem\Project\TimeValueProjects\TimeValue.BusinessEntities\obj\Debug\TimeValue.BusinessEntities.pdb
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.BusinessEntities\bin\Debug\TimeValue.BusinessEntities.dll
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.BusinessEntities\bin\Debug\TimeValue.BusinessEntities.pdb
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.BusinessEntities\obj\Debug\TimeValue.BusinessEntities.dll
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.BusinessEntities\obj\Debug\TimeValue.BusinessEntities.pdb

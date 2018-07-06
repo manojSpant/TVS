@@ -1,0 +1,726 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DevTimeValueModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="PkBillId" />
+    </Key>
+    <Property Name="PkBillId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BillNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="FkBillTypeId" Type="tinyint" />
+    <Property Name="FkEmployeeId" Type="bigint" />
+    <Property Name="FkVendorId" Type="bigint" />
+    <Property Name="FkApprovedById" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="BillLine">
+    <Key>
+      <PropertyRef Name="PkBillLineId" />
+    </Key>
+    <Property Name="PkBillLineId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkBillId" Type="bigint" />
+    <Property Name="TableName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Item" Type="nvarchar" MaxLength="100" />
+    <Property Name="Rate" Type="money" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="BillLineDetail">
+    <Key>
+      <PropertyRef Name="PkBillLineDetailId" />
+    </Key>
+    <Property Name="PkBillLineDetailId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkBillLineId" Type="bigint" />
+    <Property Name="TableName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Item" Type="nvarchar" MaxLength="100" />
+    <Property Name="Rate" Type="money" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="PkClientId" />
+    </Key>
+    <Property Name="PkClientId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="ClientSince" Type="datetime2" Precision="7" />
+    <Property Name="DefaultTicketTypeId" Type="int" />
+    <Property Name="FkGroupId" Type="bigint" />
+    <Property Name="FkCountryId" Type="bigint" />
+    <Property Name="FkCurrencyId" Type="bigint" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="OnHold" Type="bit" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="ClientAddressMap">
+    <Key>
+      <PropertyRef Name="PkClientAddressId" />
+    </Key>
+    <Property Name="PkClientAddressId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkClientId" Type="bigint" />
+    <Property Name="FkAddressId" Type="bigint" />
+    <Property Name="RecordStatusId" Type="tinyint" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ClientCommentMap">
+    <Key>
+      <PropertyRef Name="PkClientCommentId" />
+    </Key>
+    <Property Name="PkClientCommentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkClientId" Type="bigint" />
+    <Property Name="FkCommentId" Type="bigint" />
+    <Property Name="SequenceNo" Type="int" />
+    <Property Name="RecordStatusId" Type="tinyint" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ClientContactMap">
+    <Key>
+      <PropertyRef Name="PkClientContactId" />
+    </Key>
+    <Property Name="PkClientContactId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkClientId" Type="bigint" />
+    <Property Name="FkContactId" Type="bigint" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="RecordStatusId" Type="tinyint" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ClientDataMap">
+    <Key>
+      <PropertyRef Name="PkClientDataId" />
+    </Key>
+    <Property Name="PkClientDataId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkClientId" Type="bigint" />
+    <Property Name="FkDataId" Type="bigint" />
+    <Property Name="RecordStatusId" Type="tinyint" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ClientDocumentMap">
+    <Key>
+      <PropertyRef Name="PkClientDocumentId" />
+    </Key>
+    <Property Name="PkClientDocumentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkClientId" Type="bigint" />
+    <Property Name="FkDocumentId" Type="bigint" />
+    <Property Name="RecordStatusId" Type="tinyint" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ClientRateMap">
+    <Key>
+      <PropertyRef Name="PkClientRateId" />
+    </Key>
+    <Property Name="PkClientRateId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkClientId" Type="bigint" />
+    <Property Name="FkRateId" Type="bigint" />
+    <Property Name="RecordStatusId" Type="tinyint" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ClientTeamMap">
+    <Key>
+      <PropertyRef Name="PkClientTeamId" />
+    </Key>
+    <Property Name="PkClientTeamId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkClientId" Type="bigint" />
+    <Property Name="FkEmployeeId" Type="bigint" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="FkMemberRoleId" Type="int" />
+    <Property Name="RecordStatusId" Type="tinyint" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="PkCompanyId" />
+    </Key>
+    <Property Name="PkCompanyId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'DevTimeValue.dbo.EmoTable' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="EmoTable">
+          <Property Name="Emo" Type="nvarchar" MaxLength="100" />
+        </EntityType>-->
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="PKMEmployeeID" />
+    </Key>
+    <Property Name="PKMEmployeeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeCode" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Estimate">
+    <Key>
+      <PropertyRef Name="PkEstimateId" />
+    </Key>
+    <Property Name="PkEstimateId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EstimateNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="FkEstimateForId" Type="tinyint" />
+    <Property Name="FkClientId" Type="bigint" />
+    <Property Name="FkProjectId" Type="bigint" />
+    <Property Name="FkPhaseId" Type="bigint" />
+    <Property Name="FkApprovedById" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="EstimateLine">
+    <Key>
+      <PropertyRef Name="PkEstimateLineId" />
+    </Key>
+    <Property Name="PkEstimateLineId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkEstimateId" Type="bigint" />
+    <Property Name="TableName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Item" Type="nvarchar" MaxLength="100" />
+    <Property Name="Rate" Type="money" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="EstimateLineDetail">
+    <Key>
+      <PropertyRef Name="PkEstimateLineDetailId" />
+    </Key>
+    <Property Name="PkEstimateLineDetailId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkEstimateLineId" Type="bigint" />
+    <Property Name="TableName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Item" Type="nvarchar" MaxLength="100" />
+    <Property Name="Rate" Type="money" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="PkGroupId" />
+    </Key>
+    <Property Name="PkGroupId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Code" Type="nvarchar" MaxLength="100" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Organization">
+    <Key>
+      <PropertyRef Name="PkOrganizationId" />
+    </Key>
+    <Property Name="PkOrganizationId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="PayrollTimeTracking">
+    <Key>
+      <PropertyRef Name="PkPayrollTimeTrackingId" />
+    </Key>
+    <Property Name="PkPayrollTimeTrackingId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkTicketTimeId" Type="bigint" />
+    <Property Name="Item" Type="nvarchar" MaxLength="100" />
+    <Property Name="Rate" Type="money" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="PkProjectId" />
+    </Key>
+    <Property Name="PkProjectId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="ProjectCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="OnHold" Type="bit" />
+    <Property Name="Www" Type="nvarchar" MaxLength="200" />
+    <Property Name="FkClientId" Type="bigint" />
+    <Property Name="FkDisciplineId" Type="bigint" />
+    <Property Name="FkCountryId" Type="bigint" />
+    <Property Name="FkCurrencyId" Type="bigint" />
+    <Property Name="Rate" Type="money" />
+    <Property Name="BudgetAmount" Type="money" />
+    <Property Name="BudgetHours" Type="int" />
+    <Property Name="ActualAmount" Type="money" />
+    <Property Name="ActualHours" Type="int" />
+    <Property Name="BillableHours" Type="int" />
+    <Property Name="BillableAmount" Type="money" />
+    <Property Name="CostToDate" Type="money" />
+    <Property Name="AlertOnBudgetAmount" Type="int" />
+    <Property Name="AlertOnBudgetHours" Type="int" />
+    <Property Name="PercentComplete" Type="int" />
+    <Property Name="BeginDate" Type="datetime2" Precision="7" />
+    <Property Name="RequiredByDate" Type="datetime2" Precision="7" />
+    <Property Name="SignOffBy" Type="datetime2" Precision="7" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="ProjectAddressMap">
+    <Key>
+      <PropertyRef Name="PkProjectAddressId" />
+    </Key>
+    <Property Name="PkProjectAddressId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkProjectId" Type="bigint" />
+    <Property Name="FkAddressId" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ProjectCommentMap">
+    <Key>
+      <PropertyRef Name="PkProjectCommentId" />
+    </Key>
+    <Property Name="PkProjectCommentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkProjectId" Type="bigint" />
+    <Property Name="FkCommentId" Type="bigint" />
+    <Property Name="SequenceNo" Type="int" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ProjectContactMap">
+    <Key>
+      <PropertyRef Name="PkProjectContactId" />
+    </Key>
+    <Property Name="PkProjectContactId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkProjectId" Type="bigint" />
+    <Property Name="FkContactId" Type="bigint" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ProjectDataMap">
+    <Key>
+      <PropertyRef Name="PkProjectDataId" />
+    </Key>
+    <Property Name="PkProjectDataId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkProjectId" Type="bigint" />
+    <Property Name="FkDataId" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ProjectDocumentMap">
+    <Key>
+      <PropertyRef Name="PkProjectDocumentId" />
+    </Key>
+    <Property Name="PkProjectDocumentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkProjectId" Type="bigint" />
+    <Property Name="FkDocumentId" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ProjectRateMap">
+    <Key>
+      <PropertyRef Name="PkProjectRateId" />
+    </Key>
+    <Property Name="PkProjectRateId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkProjectId" Type="bigint" />
+    <Property Name="FkRateId" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ProjectTeamMap">
+    <Key>
+      <PropertyRef Name="PkProjectTeamId" />
+    </Key>
+    <Property Name="PkProjectTeamId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkProjectId" Type="bigint" />
+    <Property Name="FkEmployeeId" Type="bigint" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="FkMemberRoleId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Rate">
+    <Key>
+      <PropertyRef Name="PkRateId" />
+    </Key>
+    <Property Name="PkRateId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BaseRate" Type="money" />
+    <Property Name="OTBillableRate" Type="money" />
+    <Property Name="PremiumBillableRate" Type="money" />
+    <Property Name="WageCost" Type="money" />
+    <Property Name="Tax1" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Tax2" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Tax3" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Tax4" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="IsDefaultRate" Type="bit" />
+    <Property Name="FkFeeTypeId" Type="bigint" />
+    <Property Name="FkFeeScheduleId" Type="bigint" />
+    <Property Name="FkGlIncomeAccountId" Type="bigint" />
+    <Property Name="FkGlExpenseAccountID" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="TicketDisbursmentBillLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketDisbursmentBillLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketDisbursmentBillLineDetailMapId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkBillLineDetailId" Type="bigint" />
+    <Property Name="FkTicketDisbursementId" Type="bigint" />
+    <Property Name="Item" Type="nvarchar" MaxLength="100" />
+    <Property Name="Rate" Type="money" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TicketDisbursmentEstimateLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketDisbursementEstimateLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketDisbursementEstimateLineDetailMapId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkEstimateLineDetailId" Type="bigint" />
+    <Property Name="FkTicketDisbursementId" Type="bigint" />
+    <Property Name="Item" Type="nvarchar" MaxLength="100" />
+    <Property Name="Rate" Type="money" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TicketExpenseBillLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketExpenseBillLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketExpenseBillLineDetailMapId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkBillLineDetailId" Type="bigint" />
+    <Property Name="FkTickeExpenseId" Type="bigint" />
+    <Property Name="Item" Type="nvarchar" MaxLength="100" />
+    <Property Name="Rate" Type="money" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DevTimeValue.dbo.TicketMaterialBillLineDetailMap' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TicketMaterialBillLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketMaterialBillLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketMaterialBillLineDetailMapId" Type="bigint" Nullable="false" />
+    <Property Name="FkBillLineDetailId" Type="bigint" />
+    <Property Name="FkTicketMaterialId" Type="bigint" />
+    <Property Name="Item" Type="nvarchar" MaxLength="100" />
+    <Property Name="Rate" Type="money" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TicketMaterialEstimateLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketMaterialEstimateLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketMaterialEstimateLineDetailMapId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkEstimateLineDetailId" Type="bigint" />
+    <Property Name="FkTicketMaterialId" Type="bigint" />
+    <Property Name="Item" Type="nvarchar" MaxLength="100" />
+    <Property Name="Rate" Type="money" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TicketServiceBillLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketTimeBillLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketTimeBillLineDetailMapId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkBillLineDetailId" Type="bigint" />
+    <Property Name="FkTicketServiceId" Type="bigint" />
+    <Property Name="Item" Type="nvarchar" MaxLength="100" />
+    <Property Name="Rate" Type="money" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TicketServiceEstimateLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketMaterialEstimateLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketMaterialEstimateLineDetailMapId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkEstimateLineDetailId" Type="bigint" />
+    <Property Name="FkTicketMaterialId" Type="bigint" />
+    <Property Name="Item" Type="nvarchar" MaxLength="100" />
+    <Property Name="Rate" Type="money" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DevTimeValue.dbo.TicketTimeBillLineDetailMap' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TicketTimeBillLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketTimeBillLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketTimeBillLineDetailMapId" Type="bigint" Nullable="false" />
+    <Property Name="FkBillLineDetailId" Type="bigint" />
+    <Property Name="FkTicketTimeId" Type="bigint" />
+    <Property Name="Item" Type="nvarchar" MaxLength="100" />
+    <Property Name="Rate" Type="money" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TicketTimeEstimateLineDetailMap">
+    <Key>
+      <PropertyRef Name="PkTicketTimeEstimateLineDetailMapId" />
+    </Key>
+    <Property Name="PkTicketTimeEstimateLineDetailMapId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkEstimateLineDetailId" Type="bigint" />
+    <Property Name="FkTicketTimeId" Type="bigint" />
+    <Property Name="Item" Type="nvarchar" MaxLength="100" />
+    <Property Name="Rate" Type="money" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+    <Property Name="FkCreatedById" Type="bigint" />
+    <Property Name="FkCompanyId" Type="bigint" />
+    <Property Name="FkOrganizationId" Type="bigint" />
+    <Property Name="FkLanguageId" Type="bigint" />
+    <Property Name="FkRecordStatusId" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="PkTokenId" />
+    </Key>
+    <Property Name="PkTokenId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FkUserId" Type="bigint" />
+    <Property Name="AuthToken" Type="nvarchar" MaxLength="250" />
+    <Property Name="IssuedOn" Type="datetime" />
+    <Property Name="ExpiresOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="PkUserId" />
+    </Key>
+    <Property Name="PkUserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_TvMProject_TvMClient">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="PkClientId" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="FkClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DevTimeValueModelStoreContainer">
+    <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BillLine" EntityType="Self.BillLine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BillLineDetail" EntityType="Self.BillLineDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientAddressMap" EntityType="Self.ClientAddressMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientCommentMap" EntityType="Self.ClientCommentMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientContactMap" EntityType="Self.ClientContactMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientDataMap" EntityType="Self.ClientDataMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientDocumentMap" EntityType="Self.ClientDocumentMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientRateMap" EntityType="Self.ClientRateMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientTeamMap" EntityType="Self.ClientTeamMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estimate" EntityType="Self.Estimate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EstimateLine" EntityType="Self.EstimateLine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EstimateLineDetail" EntityType="Self.EstimateLineDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Organization" EntityType="Self.Organization" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PayrollTimeTracking" EntityType="Self.PayrollTimeTracking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectAddressMap" EntityType="Self.ProjectAddressMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectCommentMap" EntityType="Self.ProjectCommentMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectContactMap" EntityType="Self.ProjectContactMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectDataMap" EntityType="Self.ProjectDataMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectDocumentMap" EntityType="Self.ProjectDocumentMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectRateMap" EntityType="Self.ProjectRateMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectTeamMap" EntityType="Self.ProjectTeamMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rate" EntityType="Self.Rate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TicketDisbursmentBillLineDetailMap" EntityType="Self.TicketDisbursmentBillLineDetailMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TicketDisbursmentEstimateLineDetailMap" EntityType="Self.TicketDisbursmentEstimateLineDetailMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TicketExpenseBillLineDetailMap" EntityType="Self.TicketExpenseBillLineDetailMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TicketMaterialEstimateLineDetailMap" EntityType="Self.TicketMaterialEstimateLineDetailMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TicketServiceBillLineDetailMap" EntityType="Self.TicketServiceBillLineDetailMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TicketServiceEstimateLineDetailMap" EntityType="Self.TicketServiceEstimateLineDetailMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TicketTimeEstimateLineDetailMap" EntityType="Self.TicketTimeEstimateLineDetailMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Token" EntityType="Self.Token" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TicketMaterialBillLineDetailMap" EntityType="Self.TicketMaterialBillLineDetailMap" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[TicketMaterialBillLineDetailMap].[PkTicketMaterialBillLineDetailMapId] AS [PkTicketMaterialBillLineDetailMapId], 
+[TicketMaterialBillLineDetailMap].[FkBillLineDetailId] AS [FkBillLineDetailId], 
+[TicketMaterialBillLineDetailMap].[FkTicketMaterialId] AS [FkTicketMaterialId], 
+[TicketMaterialBillLineDetailMap].[Item] AS [Item], 
+[TicketMaterialBillLineDetailMap].[Rate] AS [Rate], 
+[TicketMaterialBillLineDetailMap].[Quantity] AS [Quantity], 
+[TicketMaterialBillLineDetailMap].[Amount] AS [Amount], 
+[TicketMaterialBillLineDetailMap].[CreatedDate] AS [CreatedDate], 
+[TicketMaterialBillLineDetailMap].[FkCreatedById] AS [FkCreatedById], 
+[TicketMaterialBillLineDetailMap].[FkCompanyId] AS [FkCompanyId], 
+[TicketMaterialBillLineDetailMap].[FkOrganizationId] AS [FkOrganizationId], 
+[TicketMaterialBillLineDetailMap].[FkLanguageId] AS [FkLanguageId], 
+[TicketMaterialBillLineDetailMap].[FkRecordStatusId] AS [FkRecordStatusId]
+FROM [dbo].[TicketMaterialBillLineDetailMap] AS [TicketMaterialBillLineDetailMap]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TicketTimeBillLineDetailMap" EntityType="Self.TicketTimeBillLineDetailMap" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[TicketTimeBillLineDetailMap].[PkTicketTimeBillLineDetailMapId] AS [PkTicketTimeBillLineDetailMapId], 
+[TicketTimeBillLineDetailMap].[FkBillLineDetailId] AS [FkBillLineDetailId], 
+[TicketTimeBillLineDetailMap].[FkTicketTimeId] AS [FkTicketTimeId], 
+[TicketTimeBillLineDetailMap].[Item] AS [Item], 
+[TicketTimeBillLineDetailMap].[Rate] AS [Rate], 
+[TicketTimeBillLineDetailMap].[Quantity] AS [Quantity], 
+[TicketTimeBillLineDetailMap].[Amount] AS [Amount], 
+[TicketTimeBillLineDetailMap].[CreatedDate] AS [CreatedDate], 
+[TicketTimeBillLineDetailMap].[FkCreatedById] AS [FkCreatedById], 
+[TicketTimeBillLineDetailMap].[FkCompanyId] AS [FkCompanyId], 
+[TicketTimeBillLineDetailMap].[FkOrganizationId] AS [FkOrganizationId], 
+[TicketTimeBillLineDetailMap].[FkLanguageId] AS [FkLanguageId], 
+[TicketTimeBillLineDetailMap].[FkRecordStatusId] AS [FkRecordStatusId]
+FROM [dbo].[TicketTimeBillLineDetailMap] AS [TicketTimeBillLineDetailMap]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_TvMProject_TvMClient" Association="Self.FK_TvMProject_TvMClient">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

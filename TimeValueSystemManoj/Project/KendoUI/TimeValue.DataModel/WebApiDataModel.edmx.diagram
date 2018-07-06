@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dc588093011f4958b73d77a587bc3ad8" Name="Diagram1">
+        <EntityTypeShape EntityType="DevTimeValueModel.Bill" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.BillLine" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.BillLineDetail" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.Client" Width="1.5" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="DevTimeValueModel.ClientAddressMap" Width="1.5" PointX="7.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.ClientCommentMap" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.ClientContactMap" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.ClientDataMap" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.ClientDocumentMap" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.ClientRateMap" Width="1.5" PointX="7.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.ClientTeamMap" Width="1.5" PointX="9.75" PointY="8.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.Company" Width="1.5" PointX="4.75" PointY="10.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.Employee" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.Estimate" Width="1.5" PointX="11.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.EstimateLine" Width="1.5" PointX="11.75" PointY="8.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.EstimateLineDetail" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.Group" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.Organization" Width="1.5" PointX="2.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.PayrollTimeTracking" Width="1.5" PointX="4.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.Project" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="DevTimeValueModel.ProjectAddressMap" Width="1.5" PointX="13.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.ProjectCommentMap" Width="1.5" PointX="6.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.ProjectContactMap" Width="1.5" PointX="8.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.ProjectDataMap" Width="1.5" PointX="13.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.ProjectDocumentMap" Width="1.5" PointX="10.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.ProjectRateMap" Width="1.5" PointX="12.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.ProjectTeamMap" Width="1.5" PointX="14.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.Rate" Width="1.5" PointX="15.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.TicketDisbursmentBillLineDetailMap" Width="1.5" PointX="15.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.TicketDisbursmentEstimateLineDetailMap" Width="1.5" PointX="16.75" PointY="11.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.TicketExpenseBillLineDetailMap" Width="1.5" PointX="16.75" PointY="16.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.TicketMaterialEstimateLineDetailMap" Width="1.5" PointX="17.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.TicketServiceBillLineDetailMap" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.TicketServiceEstimateLineDetailMap" Width="1.5" PointX="17.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.TicketTimeEstimateLineDetailMap" Width="1.5" PointX="6.75" PointY="17.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.TicketMaterialBillLineDetailMap" Width="1.5" PointX="8.75" PointY="17.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.TicketTimeBillLineDetailMap" Width="1.5" PointX="10.75" PointY="17.75" />
+        <AssociationConnector Association="DevTimeValueModel.FK_TvMProject_TvMClient" />
+        <EntityTypeShape EntityType="DevTimeValueModel.User" Width="1.5" PointX="13.375" PointY="17.75" />
+        <EntityTypeShape EntityType="DevTimeValueModel.Token" Width="1.5" PointX="3.375" PointY="18.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

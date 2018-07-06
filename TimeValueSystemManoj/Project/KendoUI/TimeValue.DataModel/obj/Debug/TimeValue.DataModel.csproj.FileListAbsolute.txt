@@ -1,0 +1,17 @@
+E:\MindfireInternalProjects\TimeValueSystem\Project\TimeValueProjects\TimeValue.DataModel\bin\Debug\TimeValue.DataModel.dll.config
+E:\MindfireInternalProjects\TimeValueSystem\Project\TimeValueProjects\TimeValue.DataModel\bin\Debug\TimeValue.DataModel.dll
+E:\MindfireInternalProjects\TimeValueSystem\Project\TimeValueProjects\TimeValue.DataModel\bin\Debug\TimeValue.DataModel.pdb
+E:\MindfireInternalProjects\TimeValueSystem\Project\TimeValueProjects\TimeValue.DataModel\bin\Debug\EntityFramework.dll
+E:\MindfireInternalProjects\TimeValueSystem\Project\TimeValueProjects\TimeValue.DataModel\bin\Debug\EntityFramework.xml
+E:\MindfireInternalProjects\TimeValueSystem\Project\TimeValueProjects\TimeValue.DataModel\obj\Debug\TimeValue.DataModel.csprojResolveAssemblyReference.cache
+E:\MindfireInternalProjects\TimeValueSystem\Project\TimeValueProjects\TimeValue.DataModel\obj\Debug\TimeValue.DataModel.dll
+E:\MindfireInternalProjects\TimeValueSystem\Project\TimeValueProjects\TimeValue.DataModel\obj\Debug\TimeValue.DataModel.pdb
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.DataModel\bin\Debug\TimeValue.DataModel.dll.config
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.DataModel\bin\Debug\TimeValue.DataModel.dll
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.DataModel\bin\Debug\TimeValue.DataModel.pdb
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.DataModel\bin\Debug\EntityFramework.dll
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.DataModel\bin\Debug\EntityFramework.SqlServer.dll
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.DataModel\bin\Debug\EntityFramework.xml
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.DataModel\bin\Debug\EntityFramework.SqlServer.xml
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.DataModel\obj\Debug\TimeValue.DataModel.dll
+E:\MindfireInternalProjects\TimeValueSystemManoj\Project\TimeValueProjects\TimeValue.DataModel\obj\Debug\TimeValue.DataModel.pdb
