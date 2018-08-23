@@ -228,7 +228,6 @@
                 //kendoConsole.log("event :: click (" + $(e.event.target).closest(".k-button").attr("id") + ")");
                 alert("Hello " + $(event.target).attr("id"));
                 
-
             }
 
             $("#addButton").kendoButton({
@@ -297,6 +296,135 @@
         }
 
 </div>
+
+<div id="comboBoxExample">
+    <div>
+        <h4> Item of the comboBox.</h4>
+        <p>
+            <select id="cmbSize" placeholder="Select size of Shirt..." >
+                <option>Small </option>
+                <option>Medium </option>
+                <option>Large </option>
+                <option>XL </option>
+                <option>XXL </option>
+            </select>
+
+            <input  id="cmbFabric"  placeholder="select fabric" /> 
+            <button id="getComboData">GetComboData</button>
+        </p>
+    </div>
+
+    @section ComboBox{
+        
+        <script>
+
+            $(document).ready(function () {
+
+                var cmbSize = $("#cmbSize").kendoComboBox(                 
+                ).data("kendoComboBox");
+
+                
+               
+                
+                $("#cmbFabric").kendoComboBox({
+                    dataTextField: "Fabric",
+                    dataValueField: "PK",
+                    dataSource:  [
+                            { Fabric: "Cotton", PK: "2" },
+                            { Fabric: "Cotton1", PK: "1" },
+                            { Fabric: "Polyester", PK: "16" },
+                            { Fabric: "Cotton/Polyester", PK: "3" },
+                            { Fabric: "Rib Knit", PK: "4" }],
+                    index:0, 
+                    suggest: true,
+                    filter: "contains"
+                });
+
+
+             
+                //$("#getComboData").click(function () {
+                //    alert("Hello");
+
+                //});
+                function Add() {
+                    alert("Hello");
+                };
+
+                $("#getComboData").kendoButton({
+                    click: OnClick
+                });
+
+                
+               
+                
+                function OnClick()
+                {
+                    //alert("hello");
+                    var size =  $("#cmbSize").data("kendoComboBox");
+                    var fabric =  $("#cmbSize").data("kendoComboBox");
+                    alert(  size.value());
+                }              
+
+            });
+
+
+        </script>
+        
+        }
+
+
+</div>
+
+<div id="ListBox">
+
+    <div>
+        
+        <label for="optional"  id="employees">Employee </label>
+        <label for="selected" id="dev">Developer</label>
+        
+        <br />
+
+        <select id="optional">
+            <option>Client </option>
+            <option>Project </option>
+            <option>Phase</option>
+            <option>Activity </option>
+            <option>Fee Type</option>
+        </select>
+
+        <select id="selected">          
+        </select>
+
+    </div>
+
+    @section ListBox{
+        
+        <script>
+
+            $(document).ready(function () {
+
+                $("#optional").kendoListBox({
+                    connectWith: "selected",
+                    toolbar: {
+                        tools: ["moveUp", "moveDown", "transferTo", "transferFrom", "transferAllTo", "transferAllFrom", "remove"]
+                    },
+                    draggable: true,
+                    dropSources: ["selected"]
+                }
+                    );
+                $("#selected").kendoListBox({
+                    draggable: true,
+                    dropSources: ["optional"]
+                });
+
+            });
+
+        </script>
+        
+        }
+
+</div>
+
 
     @*</body>
         </html>*@
